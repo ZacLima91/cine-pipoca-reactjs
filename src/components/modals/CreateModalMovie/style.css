@@ -1,0 +1,82 @@
+.modal-new-movie {
+    position: fixed;
+    z-index: 99999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .modal-new-movie-header {
+    width: 400px;
+    height: 480px;
+    display: flex;
+    flex-direction: column;
+    background-color: #f7d354;
+    border-radius: 6px;
+    text-align: center;
+  }
+  
+  @media (max-width: 768px) {
+    .modal-new-movie-header {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  
+  .modal-new-movie-header-title {
+    font-size: 1rem;
+    display: flex;
+    font-weight: bold;
+    color: #000;
+    text-align: center;
+    margin-top: 20px;
+    justify-content: space-between;
+    padding: 0.4rem;
+    align-items: center;
+  }
+  
+  .modal-new-movie-header-title > h3{
+      font-weight: 700;
+      font-size: 2rem;
+  }
+  
+  .modal-new-movie-header-title > button{
+      background-color: #000;
+      border: none;
+      color: #fff;
+      font-size: 1.2rem;
+      font-weight: bold;
+      padding: 0.4rem;
+      border-radius: 5px;
+      cursor: pointer;
+      height: 40px;
+  }
+  .modal-new-movie-header > input{
+      margin: 0.5rem;
+      padding: 0.5rem;
+      border-radius: 5px;
+      border: 1px solid #e6b33d;
+      font-size: 1.2rem;
+  }
+  
+  .modal-new-movie-header> button{
+      margin: 0.5rem;
+      padding: 0.5rem;
+      border-radius: 5px;
+      border: 1px solid #000;
+      background-color: #000;
+      font-size: 1.2rem;
+      cursor: pointer;
+      color: #fff;
+      transition: 0.7s;
+  }
+
+  .modal-new-movie-header> button:hover{
+    background-color: rgba(0, 0, 0, 0.322);
+    color: #000;
+  }
