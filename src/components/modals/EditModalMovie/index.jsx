@@ -1,7 +1,8 @@
 import "./style.css";
 import React from "react";
 import { useState } from "react";
-import toast from "react-hot-toast";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.min.css";
 import api from "../../../api";
 
 const ModalEditMovie = (props) => {
@@ -9,6 +10,7 @@ const ModalEditMovie = (props) => {
   const [description, setDescription] = useState(props.description);
   const [year, setYear] = useState(props.year);
   const [imageUrl, setImageUrl] = useState(props.imageUrl);
+
   const handleSubmit = async () => {
     const editedMovie = {
       name: name,
@@ -17,25 +19,26 @@ const ModalEditMovie = (props) => {
       imageUrl: imageUrl,
     };
     editedMovie.year = parseInt(editedMovie.year);
-    
-
-    const response = await api.patch(`films/${props.id}`, editedMovie);
-    if (response.status === 200) {
-      toast.success("Produto editado com sucesso!",{
-        position:"top-center"
+    const response = await api
+      .patch(`films/${props.id}`, editedMovie)
+      .catch((error) => {
+        console.log(error);
+        return error;
       });
+    console.log(response);
+
+    if (response.status === 200) {
       props.getMovie();
       props.handleClick();
+      return toast.success("Filme atualizado com sucesso");
     } else {
-      toast.error("Erro ao editar produto!");
       props.handleClick();
+      return toast.error("Erro ao editar produto!");
     }
   };
-
   return (
     <div className="modal-edit">
       <div className="modal-edit-container">
-        <button onClick={props.handleClick}>aki</button>
         <div className="modal-edit-header">
           <h3>
             Editar Filme<br></br> {props.name}

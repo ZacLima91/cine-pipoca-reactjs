@@ -1,8 +1,7 @@
 import { Outlet } from "react-router-dom";
 import "./App.css";
 import Navbar from "./components/Navbar";
-import api from "./api";
-import { useState } from "react";
+import Footer from "./components/Footer";
 
 function App() {
  
@@ -11,6 +10,7 @@ function App() {
     <div className="App">
       <Navbar />
       <Outlet />
+      <Footer />
     </div>
   );
 }

@@ -1,12 +1,13 @@
 import "./style.css";
-import { toast } from "react-hot-toast";
+import { toast } from "react-toastify";
 import { Link } from "react-router-dom";
 import api from "../../../api";
 
 const ModalDeleteMovie = (props) => {
   const deleteMovie = async () => {
     const response = await api.delete(`/films/${props.id}`);
-    if (response.status === 204) {
+    console.log(response.status);
+    if (response.status === 200) {
       toast.success("Filme deletado com sucesso!");
       props.handleClick();
     } else {

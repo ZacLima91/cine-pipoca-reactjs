@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import MovieCard from "../components/MovieCard";
 import { BiPlusCircle } from "react-icons/bi";
 import ModalNewMovie from "../components/modals/CreateModalMovie";
+import {  ToastContainer } from "react-toastify";
 import { toast } from "react-toastify";
 import api from "../api";
 import "./MoviesGrid.css";
@@ -10,7 +11,6 @@ const Home = () => {
   const [movies, setMovies] = useState([]);
   const [open, setOpen] = useState(false);
   const handleClick = () => {
-    toast("fjdskfjsdkl")
     setOpen(!open);
   };
 
@@ -36,6 +36,7 @@ const Home = () => {
           movies.map((movie) => <MovieCard key={movie.id} movie={movie} getMovies={getRateMovies} />)}
       </div>
       {open && <ModalNewMovie getMovies={getRateMovies} handleClose={handleClick} />}
+      <ToastContainer/>
     </div>
   );
 };

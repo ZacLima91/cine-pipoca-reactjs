@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { BiDetail } from "react-icons/bi";
+import {  ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.min.css";
 
 import api from "../api";
 
@@ -66,8 +68,9 @@ const Movie = () => {
           </div>
         </>
       )}
-      {openEditModal && (<ModalEditMovie getMovie={getMovie} name={movie.name} description={movie.description} year={movie.year} imageUrl={movie.imageUrl} id={movie.id} handleClick={handleShowEdit} />)}
+      {openEditModal && (<ModalEditMovie getMovie={getMovie} name={movie.name} description={movie.description} year={movie.year} imageUrl={movie.imageUrl} id={movie.id} handleClick={handleShowEdit} />) }
       {openDeleteModal && (<ModalDeleteMovie getMovies={getMovies} name={movie.name} id={movie.id} handleClick={handleShowDelete} />)}
+      {<ToastContainer />}
     </div>
   );
 };

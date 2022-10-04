@@ -1,6 +1,6 @@
 import "./style.css";
 import { useState } from "react";
-import { toast } from "react-hot-toast";
+import { toast } from "react-toastify";
 import api from "../../../api";
 
 const ModalNewMovie = (props) => {
@@ -17,20 +17,22 @@ const ModalNewMovie = (props) => {
       imageUrl,
     };
 
-
     newMovie.year = parseInt(newMovie.year);
 
     console.log(newMovie);
 
-    const response = await api.post("films", newMovie);
+    const response = await api.post("films", newMovie).catch((error)=>{
+      return error;
+    });
 
     console.log(response);
 
-    if (response.status !== 201) {
-      return toast.error("Erro ao adicionar filme!");
+    if (response.status === 201) {
+      
+      toast.success("Filme adicionado com sucesso!");
+    } else {
+      toast.error("Erro ao adicionar filme!");
     }
-
-    toast.success("Filme adicionado com sucesso!");
 
     props.handleClose();
     props.getMovies();
