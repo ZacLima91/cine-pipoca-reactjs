@@ -35,6 +35,11 @@
   cursor: pointer;
   transition: 0.4s;
 }
+@media (max-width: 768px){
+  #navbar{
+    flex-direction: column;
+  }
+}
 
 #navbar form button:hover {
   background-color: transparent;

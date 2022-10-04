@@ -70,3 +70,9 @@
   .icon-add svg:hover{
     color: #fff;
   }
+
+  @media (max-width: 600px){
+    .movies-container div {
+      width: 100%;
+    }
+  }
